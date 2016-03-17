@@ -111,7 +111,7 @@ namespace BouncingSquare
             _box = new PictureBox(); //creates new box
             _form = frm;
             _rnd = rnd;
-            Size size = new Size(100, 10);
+            Size size = new Size(200, 10);
             _box.Size = size; //defines the bounds of the new box
             int x = (_form.Width / 2) - (_box.Width/2); //determines where the new box is placed on the X axis
             int y = _form.Height - _box.Height * 5; //determines placement on Y axis - top is 0

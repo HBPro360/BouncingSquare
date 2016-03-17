@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace BouncingSquare
 {
-    public class Square: IDisposable
+    public class Square : Event, IDisposable
     {
         #region Private Members
         private Guid _id = Guid.Empty;
@@ -21,7 +21,6 @@ namespace BouncingSquare
         private Paddle _paddle = null;
         private Image _explosion = null;
         private Timer _tmrExplosion = null;
-        private Label _lblScore = null;
         private int _Value = 0;
 
 
@@ -76,9 +75,8 @@ namespace BouncingSquare
             if (location.Y >= _form.Height - (_box.Height * 2))
             {
                 Dispose();
-                int score = Convert.ToInt32(_lblScore.Text);
-                score -= _Value;
-                _lblScore.Text = score.ToString();
+                ScoreEventArgs e = new ScoreEventArgs(string.Empty, -this._Value);
+                RaiseEvent(this, e);
             }
             else if (location.Y <= 0)
             {
@@ -95,9 +93,8 @@ namespace BouncingSquare
             else if (_paddle.Box.Bounds.IntersectsWith(_box.Bounds))
             {
                 _yDir = -_yDir;
-                int score = Convert.ToInt32(_lblScore.Text);
-                score += _Value;
-                _lblScore.Text = score.ToString();
+                ScoreEventArgs e = new ScoreEventArgs(string.Empty, _Value);
+                RaiseEvent(this, e);
             }
 
         }
@@ -118,9 +115,8 @@ namespace BouncingSquare
         #endregion
 
         #region Construction
-        public Square(Form frm, Random rnd, Paddle paddle, Label lbl)
+        public Square(Form frm, Random rnd, Paddle paddle)
         {
-            _lblScore = lbl;
             _paddle = paddle;
             _rnd = rnd;
             _Value = _rnd.Next(1,10);
@@ -162,6 +158,7 @@ namespace BouncingSquare
             _form.Controls.Add(_box);
             Bitmap bmp = new Bitmap("Images/Explode.gif");
             _explosion = bmp;
+
             _id = Guid.NewGuid();
 
 
