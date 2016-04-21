@@ -16,3 +16,6 @@ E:\C# Programming\BouncingSquare\BouncingSquare\obj\Debug\BouncingSquare.csprojR
 E:\C# Programming\BouncingSquare\BouncingSquare\obj\Debug\BouncingSquare.frmBouncingSquare.resources
 E:\C# Programming\BouncingSquare\BouncingSquare\obj\Debug\BouncingSquare.Properties.Resources.resources
 E:\C# Programming\BouncingSquare\BouncingSquare\obj\Debug\BouncingSquare.csproj.GenerateResource.Cache
+E:\C# Programming\Second Term\BouncingSquare\BouncingSquare\bin\Debug\BouncingSquare.exe.config
+E:\C# Programming\Second Term\BouncingSquare\BouncingSquare\obj\Debug\BouncingSquare.exe
+E:\C# Programming\Second Term\BouncingSquare\BouncingSquare\obj\Debug\BouncingSquare.pdb
